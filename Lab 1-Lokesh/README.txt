@@ -34,3 +34,28 @@ Solutions:
 5. Select *Razor View - Empty* and keep the default name Index.cshtml.
 6. Replace the contents of the Views/HelloWorld/Index.cshtml Razor view file with the following code:
 
+-------------------------------------------------------------------------------
+Date: 2024-01-24
+Time - 22:55:56
+Student Id - 0849075
+
+Task 4 - 
+I have created a data model class named LokeshMovies under the models and have entered code manually by modifiying the namespace as Lab_1_Lokesh.Models.Models;
+Next i have created NuGet Packages by right clicking on the controllers -> Add -> New Scaffolded Item. For the Controller name i gave name as LokeshMoviesConttroller and click on Add.
+Scaffolding has created below 
+1. Controllers/LokeshMoviesController.cs
+2. Views/LokeshMovies/Create,Delete,Details,Edit and Index .cshtml
+3. Data/Lab_1_LokeshContext.cs
+Now, I have created the Migration to create and update a database to match the data model.
+navigated to Tools -> NuGet Package Manager -> Package Manager Console
+and run the below comands in PowerShell 
+Add-Migration InitialCreate
+Update-Database
+A new migration file created with the date and time stamp - C:\Users\donga\source\repos\Lab 1-Lokesh\Lab 1-Lokesh\Migrations\20240124222556_InitialCreate.Designer.cs
+I have cleaned the console and build without any errors and Run the application.
+
+Problems faced and New Things Learned:
+1. As i have changed the name of the controller from MvcMovie to LokeshMovie, they are some changes required in the code, which lead to me 
+errors and page not loaded when i run the code. Not able to find the Movies page. I have stared going through the complete steps one by one 
+and then able to find the code changes where all modifications required. Successfully i am able to open the movies page.
+Also understood that about scaffold that it creates CRUD pages automatically 
