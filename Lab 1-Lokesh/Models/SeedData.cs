@@ -24,6 +24,7 @@ namespace Lab_1_Lokesh.Models;
                         Title = "SVP",
                         ReleaseDate = DateTime.Parse("2023-1-12"),
                         Genre = "Family Comedy",
+                        Rating = "R",
                         price = 17.99M
                     },
                 new LokeshMovie
@@ -31,6 +32,7 @@ namespace Lab_1_Lokesh.Models;
                     Title = "Filmy Moji",
                     ReleaseDate = DateTime.Parse("2024-1-13"),
                     Genre = "Comedy",
+                    Rating = "R",
                     price = 8.99M
                 },
                 new LokeshMovie
@@ -38,6 +40,7 @@ namespace Lab_1_Lokesh.Models;
                     Title = "DJ Tillu",
                     ReleaseDate = DateTime.Parse("2021-2-23"),
                     Genre = "Comedy",
+                    Rating = "R",
                     price = 19.99M
                 },
                 new LokeshMovie
@@ -45,6 +48,7 @@ namespace Lab_1_Lokesh.Models;
                     Title = "Salar",
                     ReleaseDate = DateTime.Parse("2023-4-15"),
                     Genre = "Action",
+                    Rating = "R",
                     price = 13.99M
                 },
                 new LokeshMovie
@@ -52,6 +56,7 @@ namespace Lab_1_Lokesh.Models;
                     Title = "Athadu",
                     ReleaseDate = DateTime.Parse("2017-03-28"),
                     Genre= "Action",
+                    Rating = "R",
                     price = 10.11M
                 },
                 new LokeshMovie
@@ -59,6 +64,7 @@ namespace Lab_1_Lokesh.Models;
                     Title = "Pokiri",
                     ReleaseDate = DateTime.Parse("2019-03-28"),
                     Genre = "Action",
+                    Rating = "R",
                     price = 16.11M
                 }
             );
