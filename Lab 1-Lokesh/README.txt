@@ -131,23 +131,58 @@ is unable to find the LINQ query to context file. Next i have removed the entire
 by manually. Then issue has bee resolved.
 
 
-Task 8:
-Task: To add a new field to an ASP.NET Core MVC app
+Task 8: To add a new field to an ASP.NET Core MVC app
 
 Navigated to Models/LokeshMovie.cs file to add a Rating property to the movie model,
 Add a bleow code to the existing code - public string? Rating { get, set;}
+Once code is modified then binded the Rating property to create and edit action methods
+Then, next navigated to Views/Movies/Index.cshtml and added a below code inside the table class
+<th>
+    @Html.DisplayNameFor(model => model.Movies![0].Rating)
+</th>
+ <td>
+    @Html.DisplayFor(modelItem => item.Rating)
+</td>
+Next, I have modified the SeedData.cs file with the field Rating = "R"
+Next executed the Add-Migration Rating in powershell and next Update-Database has done.
 
-Observation:
-Adding a new field to an ASP.NET Core MVC app required changes to both the model and data context classes, 
-as well as updating the views and controllers to handle the new field. It is important to carefully plan the 
-addition of a new field and ensure that it is relevant and necessary for the app's functionality. 
+Things Learned and Observations: How to add a new field to Model/LokeshMovie.cs file and where to update the Index.cshtml file
+with required changes and how to update the database with migration. 
 
-Task 9:
-Opened the ASP.NET Core MVC app in Visual Studio: Navigated to the Model Class: Identify and open the model class that corresponds to the data entity requiring validation.
-Apply Data Annotations for Validation Within the model class, use data annotations (attributes) to define validation rules for the properties. For instance, use [Required]
-for mandatory fields, [StringLength] for maximum length, or custom annotations for specific requirements.
-Observation:
-ASP.NET Core MVC offers immediate feedback to users, supports client-side and server-side validation, and allows developers to implement
-custom validation logic. This enhances user experience by providing immediate feedback on input. The system also supports error message localization, allowing applications to display messages in different languages based on user preferences. This allows for better integration with other systems and enhances user experience.
-Immediate Feedback to Users: The incorporation of validation provides users with immediate feedback on their input, 
-enhancing the user experience.
+Problems Faced: My url was not executing after i have added the new field Rating to the existing file, where i missed adding 
+Rating field to SeedData file and updated the migration. When i run the build i am not getting the any errors where i missied 
+field errors, but when i execute the code getting error page. After going through the 
+steps step by step where i able to find the mistake and added to field to seeddata.cs file.
+
+Task 9: Add Validation for the creation fields
+
+Navigated to Models/LokeshMovie in order to add the validation requirements to the exisitng code for fileds 
+Title, Release Date, Price, Genre, Rating where below code has been added to for LokeshMovie.Models
+[StringLength(60, MinimumLength = 3)]
+    [Required]
+
+[Range(1, 100)]
+    [DataType(DataType.Currency)]
+    [Column(TypeName = "decimal(18, 2)")]
+
+[RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
+    [Required]
+    [StringLength(30)]
+Next, Build the code the and checked the validation rules.
+
+Things Learned and Observations: How to add the validation rules to creation fileds and how to define the
+accepted values for the required fields and what terms can be used to add a validation rules.
+How Validation rules work and where all logic it has build.
+
+Problems Faced: Not able to run the code , got the error in seedadt file stating no internal server error.
+if (context.LokeshMovie.Any())
+{
+   return;   // DB has been seeded
+}
+Error pointed over the ablove code stating that action not defined. 
+After going through the steps throughly step by step able to figure out the issue in the Regular Expression. 
+After Modifying the regular expersion, able to execute the code successfully and see the validation error messages as expected.
+
+Task 10: 
+
+
