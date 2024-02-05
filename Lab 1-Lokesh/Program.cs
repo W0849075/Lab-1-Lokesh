@@ -4,7 +4,7 @@ using Lab_1_Lokesh.Data;
 using Lab_1_Lokesh.Models;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<Lab_1_LokeshContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Lab_1_LokeshContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Lab_1_LokeshContext"))); 
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

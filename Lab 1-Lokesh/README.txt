@@ -95,25 +95,48 @@ Student Id - 0849075
 
 Task 7:
 Add search to an ASP.NET Core MVC app
-Controller Modifications:
-In the controller, updated the action methods that handle the displaying of data to include search functionality.Extracted and filtered data based on the search criteria.
-Updated the corresponding views to include a search form and displayed the search results. 
-Created a Search Form in the view, design and implement an HTML form that captures the user input for search.
-In the controller, created an action method to handle the form submission. Extracted the search query from the form and use it to filter the data.
-Observation:
-Adding search functionality to an ASP.NET Core MVC app can greatly enhance the user experience and make it easier for users to 
-find the information they are looking for. By allowing users to search for specific content, you can create a more personalized 
-and tailored experience that meets the needs of your users. However, it is important to ensure that the search functionality is properly implemented and tested to ensure that it is working correctly.
+I have navigated to Controllers/LokeshMoviesController.cs and modified the Index Action Method.
+Where i have added below code 
+var movies = from m in _context.LokeshMovie
+                         select m;
+to create a LINQ query to select the movies
+Next, i have navigated to Program.cs file and checked for the id parameter pattern.
+Next, I have modified the Index loop inside the LokeshMoviesController.cs with id instead of searchString and build the code and executed 
+After the changes in program.cs file and LokeshMoviesController.cs user need not to be enter the index?searchString= "Movie name" where now he can directly enter the movie title after LokeshMovies 
+Next i have added a <form> markup loop insided the Views/Movies/Index.cshtml which added a filter button on the app.
+Below code has been added to the Index.cshtml
+<form asp-controller="LokeshMovies" asp-action="Index">
+    <p>
+        Title: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+Now, I have added a Search by genre filter inside the app by updating the LokeshMoviesController.cs file
+Below is the code to get the LINQ query that retrives the genres 
+// Use LINQ to get list of genres.
+IQueryable<string> genreQuery = from m in _context.Movie
+                                orderby m.Genre
+                                select m.Genre;
+I also updated the Index.cshtml where loop with MovieGenre has been modified according to the requirement.
+After rebuild the code anf navigating to the web url. I am able to see the filter for genre and title.
+Observation and Things Learnerd:
+Controller file is where user need to modified the code for MovieGenre and searchString to add a filter to the 
+app, Index method is where the code changes are done, also linq query is created to selecte the 
+movies from the context movies. Next modified the Views/Movies/Index.cshtml to add the filter related to Genre and 
+tile. 
+
+Problems Faced: Faced isses with name resolution, when ever i run the code i had received the errors with name issues
+where i need to modify the code as per the my file names. For genre fiter to able to figure out the issue where the loop
+is unable to find the LINQ query to context file. Next i have removed the entire code of index.cshtml file and added the code 
+by manually. Then issue has bee resolved.
+
 
 Task 8:
 Task: To add a new field to an ASP.NET Core MVC app
- 
-Accessed the project in Visual Studio to begin the modification process.Opened the model class to add a new field:
-Navigated to the relevant model class within the project. Added a new property to the class with the appropriate data type:
-Added a new property in the model class, specifying the appropriate data type for the desired field.
-Opened the data context class to add a new DbSet for the new property:
-Accessed the data context class that is associated with the model and incorporated a new DbSet for the newly added property.
-Executed the migration to update the database with the new field.
+
+Navigated to Models/LokeshMovie.cs file to add a Rating property to the movie model,
+Add a bleow code to the existing code - public string? Rating { get, set;}
+
 Observation:
 Adding a new field to an ASP.NET Core MVC app required changes to both the model and data context classes, 
 as well as updating the views and controllers to handle the new field. It is important to carefully plan the 

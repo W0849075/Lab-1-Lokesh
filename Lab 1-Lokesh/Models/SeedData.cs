@@ -50,23 +50,8 @@ namespace Lab_1_Lokesh.Models;
                     Genre = "Action",
                     Rating = "R",
                     price = 13.99M
-                },
-                new LokeshMovie
-                {
-                    Title = "Athadu",
-                    ReleaseDate = DateTime.Parse("2017-03-28"),
-                    Genre= "Action",
-                    Rating = "R",
-                    price = 10.11M
-                },
-                new LokeshMovie
-                {
-                    Title = "Pokiri",
-                    ReleaseDate = DateTime.Parse("2019-03-28"),
-                    Genre = "Action",
-                    Rating = "R",
-                    price = 16.11M
                 }
+                         
             );
             context.SaveChanges();
         }
