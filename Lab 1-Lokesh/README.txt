@@ -183,6 +183,21 @@ Error pointed over the ablove code stating that action not defined.
 After going through the steps throughly step by step able to figure out the issue in the Regular Expression. 
 After Modifying the regular expersion, able to execute the code successfully and see the validation error messages as expected.
 
+----------------------------------------------------------------------------------------------------------------------------
+Date - 2024-02-06
+Time - 15:07:05
+Student Id - 0849075
+
 Task 10: 
+Examine the Details and Delete methods of an ASP.NET Core
+
+I navigated to the LokeshMoviesController and gone throught the details action method
+and understood what does the loop do when we execute the code. Here get request has called three url segmanets
+that is LokeshMovies controller, Details method and id value.By default Scaffolding engine created this action method.
+Now, I have exm ined the loop of Delete action method inside the LokeshMovies controller. Here it says one method is used to get 
+the Movies details view of the specified movie. It states that performing a delete operation in response to a GET request opens up 
+a security hole.
+[HttpPost, ActionName("Delete")] with action named DeleteConfirmed. When the solution method with ActionName("Delete") and attribute to 
+DeleteConfirmed method.
 
 
