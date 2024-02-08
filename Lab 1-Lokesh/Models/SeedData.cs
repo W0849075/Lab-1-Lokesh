@@ -19,7 +19,7 @@ namespace Lab_1_Lokesh.Models;
                     return;   // DB has been seeded
                 }
                 context.LokeshMovie.AddRange(
-                    new LokeshMovie
+                new LokeshMovie
                     {
                         Title = "SVP",
                         ReleaseDate = DateTime.Parse("2023-1-12"),
@@ -50,8 +50,16 @@ namespace Lab_1_Lokesh.Models;
                     Genre = "Action",
                     Rating = "R",
                     price = 13.99M
+                },
+                new LokeshMovie
+                {
+                    Title = "Darling",
+                    ReleaseDate = DateTime.Parse("2023-8-15"),
+                    Genre = "Love",
+                    Rating = "R",
+                    price = 19.99M
                 }
-                         
+
             );
             context.SaveChanges();
         }
